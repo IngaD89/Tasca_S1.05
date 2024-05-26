@@ -1,0 +1,6 @@
+D--- example ____last modification___: 2024-05-25 11:35:56
+|  F--- demo.json ___last modification of file___2024-05-23 12:13:05
+|  F--- dev.json ___last modification of file___2024-05-25 11:35:39
+|  D--- directories ____last modification___: 2024-05-26 15:21:52
+|  |  F--- config.json ___last modification of file___2024-05-26 14:40:07
+|  |  F--- text.txt ___last modification of file___2024-05-26 15:21:52
