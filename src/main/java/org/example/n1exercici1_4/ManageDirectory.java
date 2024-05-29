@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-public class ReadDirectory {
+public class ManageDirectory {
 
     private final String directoryPath;
 
-    public ReadDirectory(String directoryPath) {
+    public ManageDirectory(String directoryPath) {
         this.directoryPath = directoryPath;
     }
 
@@ -18,9 +18,17 @@ public class ReadDirectory {
         try {
             directory = new File(directoryPath);
             if (directory.isDirectory()) {
-                String[] files = directory.list();
+                File[] files = directory.listFiles();
                 if (files != null) {
                     Arrays.sort(files);
+                        System.out.println("Ejercicio 1: imprimir contenido de direcotrios ordenado alfabéticamente");
+                    for(File file : files){
+                        if(!file.isDirectory()) {
+                            System.out.println(file.getName());
+                        }
+                    }
+                    System.out.println("_____________________________________");
+                    System.out.println();
                 }
             }
         } catch (Exception e) {
@@ -29,7 +37,9 @@ public class ReadDirectory {
         return directory;
     }
 
+
     public void printFileNamesAsTree(File directory, int grade) {
+            System.out.println("Ejercico 2: imprimir archivos como un arbol");
         try {
             if (directory.isDirectory()) {
                 System.out.println(colorText(tabulation(grade) + "D--- " + directory.getName(), "CYAN")
@@ -51,11 +61,14 @@ public class ReadDirectory {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Error al imprimir el árbol de archivos: " + e.getMessage());
+            System.out.println("Error while print files as tree");
+        } finally {
+            System.out.println("-----------------------------");
         }
     }
 
     public void saveLog(File directory, int grade, PrintWriter writer) {
+        System.out.println("Ejercico 3: Guardar el arbol de archivos en '.txt'. revisar archivo saveLog.txt");
         try {
             if (directory.isDirectory()) {
                 writer.println(tabulation(grade) + "D--- " + directory.getName()
@@ -77,7 +90,9 @@ public class ReadDirectory {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Error al imprimir el árbol de archivos: " + e.getMessage());
+            System.out.println("Error while print files as tree");
+        }finally {
+            System.out.println("-----------------------------");
         }
     }
 
@@ -88,10 +103,11 @@ public class ReadDirectory {
                 if (file.isDirectory()) {
                     searchTxtFiles(file);
                 } else if (file.getName().toLowerCase().endsWith(".txt")) {
+                    System.out.println("Ejercicio 4: Buscar archivos .txt, " +
+                            "leer e imprimir su nombre, ultima fecha de modificacion y contenidto");
                     System.out.println("File: " + file.getName());
                     System.out.println("Last modification: " + updatedAt(file));
                     System.out.println("Content: " + readTxt(file));
-                    System.out.println("--------------------------------------------");
                 }
             }
         }
@@ -105,7 +121,7 @@ public class ReadDirectory {
                 content.append(line).append(System.lineSeparator());
             }
         } catch (IOException e) {
-            return "Error al leer el contenido del archivo: " + e.getMessage();
+            return "Error while reading file content";
         }
         return content.toString();
     }

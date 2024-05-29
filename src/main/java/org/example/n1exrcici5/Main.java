@@ -7,8 +7,6 @@ public class Main {
 
         Person person = new Person("John", "Doe", 30);
 
-        //  File file = new File("src/main/resources/person.ser");
-
         serializeObject(person, "person.ser");
 
         Person deserializedPerson = (Person) deserializeObject("person.ser");
