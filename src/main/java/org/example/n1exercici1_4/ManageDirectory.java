@@ -21,7 +21,7 @@ public class ManageDirectory {
                 File[] files = directory.listFiles();
                 if (files != null) {
                     Arrays.sort(files);
-                        System.out.println("Ejercicio 1: imprimir contenido de direcotrios ordenado alfabéticamente");
+                        System.out.println("Ejercicio 1: imprimir contenido de directorios ordenado alfabéticamente");
                     for(File file : files){
                         if(!file.isDirectory()) {
                             System.out.println(file.getName());
@@ -62,8 +62,6 @@ public class ManageDirectory {
             }
         } catch (Exception e) {
             System.out.println("Error while print files as tree");
-        } finally {
-            System.out.println("-----------------------------");
         }
     }
 
@@ -91,8 +89,6 @@ public class ManageDirectory {
             }
         } catch (Exception e) {
             System.out.println("Error while print files as tree");
-        }finally {
-            System.out.println("-----------------------------");
         }
     }
 
@@ -104,7 +100,7 @@ public class ManageDirectory {
                     searchTxtFiles(file);
                 } else if (file.getName().toLowerCase().endsWith(".txt")) {
                     System.out.println("Ejercicio 4: Buscar archivos .txt, " +
-                            "leer e imprimir su nombre, ultima fecha de modificacion y contenidto");
+                            "leer e imprimir su nombre, ultima fecha de modificacion y contenido");
                     System.out.println("File: " + file.getName());
                     System.out.println("Last modification: " + updatedAt(file));
                     System.out.println("Content: " + readTxt(file));
